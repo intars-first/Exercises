@@ -16,9 +16,30 @@ namespace Exercises.Level2
         /// <param name="h">Height of letters</param>
         /// <param name="l">Length of letters</param>
         /// <returns></returns>
-        public string[] GetArt(string[] letters, string word , int h, int l)
+        public string[] GetArt(string[] letters, string word, int h, int l)
         {
-            throw new NotImplementedException();
+            //word = word.Replace("@", "A");
+            char[] wordChars = word.ToCharArray();
+            string[] output = new string[h];
+
+            for (int i = 0; i < wordChars.Length; i++)
+            {
+                int abcIndex = char.ToUpper(wordChars[i]) - 64 - 1;//google
+                if (abcIndex < 0 || abcIndex > 26) abcIndex = (letters[0].Length)/4-1;
+                for (int j = 0; j < 5; j++)
+                {
+
+                    output[j] += letters[j].Substring(abcIndex * 4, 4);
+                }
+
+            }
+
+
+
+
+
+
+            return output;
         }
     }
 }

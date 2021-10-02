@@ -29,7 +29,20 @@ namespace Exercises.Level2
         /// <returns></returns>
         public string[] GetTRiangle(int n)
         {
-            throw new NotImplementedException();
+            string[] allLines = new string[n];
+            string line = "*";
+
+            for (int i = 0; i < n; i++)
+            {
+                string spaces = "";
+                for (int j = i+1; j < n; j++) { spaces += " "; }
+                
+                allLines[i] = spaces + line;
+                line += "**";
+                
+            }
+
+            return allLines;
         }
     }
 }

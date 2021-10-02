@@ -401,7 +401,7 @@ namespace Exercises.Level1
         public int MaxTriple(int[] nums)
         {
             int halfLength = nums.Length / 2;
-            return Math.Max(Math.Max(nums[halfLength - 1], nums[halfLength]), nums[halfLength + 1]);
+            return Math.Max(Math.Max(nums[0], nums[halfLength]), nums[nums.Length -1]);
 
         }
 

@@ -42,7 +42,31 @@ namespace Exercises.Level2
 
         public string[] GetTriforce(int n)
         {
-            throw new NotImplementedException();
+            string[] allLines = new string[n * 2];
+
+            string fullEmpty = "";
+            for (int i = 0; i < n; i++) { fullEmpty += " "; }
+
+            //5;4;3;2;1 - between triangles
+            string halfEmtyBuilder = " ";
+            string[] halfEmpty = new string[n];
+            for (int i = n - 1; i >= 0; i--)
+            {
+                halfEmpty[i] = halfEmtyBuilder;
+                halfEmtyBuilder += " ";
+            }
+
+            Triangle triangleCreator = new Triangle();
+            string[] triangle = triangleCreator.GetTRiangle(n);
+
+            for (int i = 0; i < n; i++)
+            {
+                allLines[i] = fullEmpty + triangle[i];
+                allLines[i + n] = triangle[i] + halfEmpty[i] + triangle[i];
+            }
+
+
+            return allLines;
         }
     }
 }
